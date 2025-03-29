@@ -47,12 +47,12 @@ Ensure you have the following installed:
 
 ## Endpoints
 ### 1. Get Students
-**URL:** `/students`  
+http://51.20.12.42:5001/students
 **Method:** `GET`  
 **Response:** JSON list of at least 10 students with names and enrolled programs.
 
 ### 2. Get Subjects
-**URL:** `/subjects`  
+**[URL](http://51.20.12.42:5001/subjects):** `/subjects`  
 **Method:** `GET`  
 **Response:** JSON list of Software Engineering subjects, categorized by academic year.
 
