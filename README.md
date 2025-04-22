@@ -80,13 +80,52 @@ http://51.20.12.42:5001/students
    - Add a server block to proxy requests to Flask
    - Restart Nginx: `sudo systemctl restart nginx`
 
-## Version Control
-- Regular commits are made to track development progress.
-- All changes are pushed to GitHub for version tracking.
+##  Task 1: Bash Script Development
 
-## Submission
-- **GitHub Repository:** `<your-github-repo-url>`
-- **Deployed API URL:** `<your-deployed-api-url>`
+All scripts are located in the `bash_scripts/` directory.
 
-Ensure the API is accessible before submission. Happy coding!
+### `health_check.sh`
+
+**Purpose**: Monitor server resource usage and API status.
+
+**Features**:
+- Checks CPU, memory, and disk space usage.
+- Verifies the web server (Apache/Nginx) is running.
+- Tests API endpoints `/students` and `/subjects` using `curl`.
+- Logs results to `/var/log/server_health.log`.
+- Adds warnings if disk space < 10% or endpoints are down.
+
+---
+
+ ### `backup_api.sh`
+
+**Purpose**: Back up the API project and database.
+
+**Features**:
+- Archives the API project directory to `/home/ubuntu/backups/`.
+- Exports the database to `.sql` file in the same folder.
+- Deletes backups older than 7 days.
+- Logs backup events to `/var/log/backup.log`.
+
+---
+### `update_server.sh`
+
+**Purpose**: Automate server updates and API deployment.
+
+**Features**:
+- Runs `apt update && apt upgrade -y`.
+- Pulls the latest code from GitHub.
+- Restarts the web server (Apache/Nginx).
+- Logs events to `/var/log/update.log`.
+- If `git pull` fails, logs an error and exits.
+
+---
+
+##  Version Control
+
+- Create a directory in your Assignment 1 GitHub repo:
+
+```bash
+mkdir bash_scripts
+
 
